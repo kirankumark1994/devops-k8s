@@ -97,6 +97,9 @@ wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/cri
 sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
 rm -f crictl-$VERSION-linux-amd64.tar.gz
 
+crictl ps # checking work or not
+
+
 cat <<EOF | sudo tee /etc/crictl.yaml
 runtime-endpoint: unix:///run/containerd/containerd.sock
 image-endpoint: unix:///run/containerd/containerd.sock
@@ -105,6 +108,8 @@ debug: false
 pull-image-on-create: false
 EOF
 ```
+crictl ps # checking work or not
+
 
 # Install Kubeadm, Kubelet, and kubectl on all the nodes.
 
